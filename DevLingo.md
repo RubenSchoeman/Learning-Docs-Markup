@@ -29,4 +29,4 @@
 
   1.1. `<Form></Form>` Tag
 
-   * The `<Form></Form>` Tag
+   * The HTML `<form>` tag is used for creating a form for user input. A form can contain textfields, checkboxes, radio-buttons and more. Forms are used to pass user-data to a specified URL.
