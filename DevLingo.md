@@ -3,13 +3,13 @@
 ## **Content**
 
 1. ### HTML *Lingo*
->  1.1. `<Form></Form>` Tag
+>  1.1. `<form></form>` Tag
 >
->  1.2. `<Body></Body>` Tag
+>  1.2. `<body></body>` Tag
 >
->  1.3. `<Div></Body>` Tag
+>  1.3. `<div></div>` Tag
 >
->  1.4. `<Head></Head>` Tag
+>  1.4. `<head></head>` Tag
 
 
 2. ### CSS *Lingo*
@@ -27,6 +27,8 @@
 
 ## 1. HTML *Lingo*
 
-  1.1. `<Form></Form>` Tag
+  1.1. `<form></form>` Tag
 
-   * The HTML `<form>` tag is used for creating a form for user input. A form can contain textfields, checkboxes, radio-buttons and more. Forms are used to pass user-data to a specified URL.
+   * The HTML `<form></form>` tag is used for creating a form for user input. A form can contain textfields, checkboxes, radio-buttons and more. Forms are used to pass user-data to a specified URL.
+   * Any input form the client side will be submitted through the `<form></form>` tag.
+  
