@@ -127,7 +127,7 @@
 
 #### Element Img
 
-  ![alt text](htmlcss1-diagram__htmlanatomy.svg)
+  ![Element structure](htmlcss1-diagram__htmlanatomy.svg)
 
 #### Definitions
 
