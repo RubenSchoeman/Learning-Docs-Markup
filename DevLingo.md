@@ -32,7 +32,7 @@
 >
 >  1.4. `<head></head>` Tag
 >
->      1.4.1 List of elements used in the <head></head> element*
+>      1.4.1 List of elements used in the <head></head> element
 >
 >  1.5 Labels
 >
@@ -44,11 +44,13 @@
 >>>
 >>>     1.5.2.2 Elements with more than one class
 >
->  1.6 Multiple selectors
+>  1.6 `<tables></tables>` Tag
 
 #### 2. CSS *Lingo*
 
 >   2.1 Basic structure of CSS
+>>
+>>    2.1.1 Multiple selectors
 >
 >   2.2 linking CSS and HTML together
 >
@@ -100,7 +102,7 @@
 >>
 >>    2.7.3 Border-radius property
 >
->   2.8 Shorthand Styling
+>   2.8 Shorthand Border Styling
 >
 >   2.9 Padding property
 >
@@ -110,10 +112,35 @@
 >
 >   2.12 Display property
 >
->   2.13 Visibility property.
+>   2.13 Visibility property
 >
 >   2.14 Box model
-
+>
+>   2.15 Position property
+>>
+>>    2.15.1 Position: Relative
+>>
+>>    2.15.2 Position: Absolute
+>>
+>>    2.15.3 Position: Fixed
+>
+>   2.16 Z-index Property
+>
+>   2.17 Float Property
+>
+>   2.18 Clear Property
+>
+>   2.19 Images and CSS
+>
+>   2.20 Background-Image Property
+>
+>   2.21 Background-Repeat Property
+>
+>   2.22 Background-Position Property
+>
+>   2.23 Shorthand Background Sty2.1.1 Multiple selectors
+>
+>   2.25 Background-Attachment Property
 
 #### 3. JavaScript *Lingo*
 
@@ -135,7 +162,6 @@
 |:-----:|:----:|:----------:|
 | | Block-level elements  | elements that use an entire line of space in a web page and disrupt the natural flow of text. Most of the common HTML elements are block-level elements (headings, paragraphs, divs, and more).  |
 | 1.0.1 | Boilerplate | The term "boilerplate code" is used to describe the basic HTML code required to begin creating a web |
-| 1.0.1.1 |  Boilerplate | ```<!DOCTYPE html> <html> <head> <title></title> </head> <body></body> </html>``` |
 | | Box model  | The CSS box model is essentially a box that wraps around every HTML element. It consists of: margins, borders, padding, and the actual content.  |
 | | CSS background-color  | Background color refers to the color behind an element, styled with the background-color property.  |
 | | Default Stylesheets  | User Agent Stylesheets or Browser Stylesheets |
@@ -146,6 +172,7 @@
 | | Inline elements  | Elements that display inline with text, without disrupting the flow of the text (like links)  |
 | | RGBA  | Red, Green, Blue, Opacity (Not supported by some browswers){color: rgb(123, 88, 9, 0.5);} |
 | | RGB  | Red, Green, Blue {color: rgb(123, 88, 9);} |
+| | Shorthand Styling  | Shorthand properties are CSS properties that let you set the values of several other CSS properties simultaneously.  |
 | | User Agent  | Is a technical term for the browser  |
 
 
@@ -334,7 +361,133 @@
 >           font-color: #B097DD;
 >         }
 
-  1.6 Multiple selectors
+
+
+  1.7 `<table></table>` Tag
+
+    Before displaying data, you must first create the table that will contain the
+    data by using the <table> element.
+
+>     <table>
+>
+>     </table>
+
+    The <table> element will contain all of the tabular data you plan on displaying.
+
+    The first step in entering data into the table is to add rows using the table
+    row element: <tr>.
+
+>     <table>
+>       <tr>
+>       </tr>
+>       <tr>
+>       </tr>
+>     </table>
+
+    In the example above, two rows have been added to the table.
+
+    Rows aren't sufficient to add data to a table. Each cell element must also
+    be defined. In HTML, you can add data using the table data element: <td>.
+
+>     <table>
+>       <tr>
+>         <td>73</td>
+>         <td>81</td>
+>       </tr>
+>     </table>
+
+   <table>
+     <tr>
+       <td>73</td>
+       <td>81</td>
+     </tr>
+   </table>
+
+    In the example above, two data points (73 and 81) were entered in the one row
+    that exists. By adding two data points, we created two cells of data.
+
+    If the table were displayed in the browser, it would show a table with one
+    row and two columns.
+
+    To add titles to rows and columns, you can use the table heading element: <th>.
+
+    The table heading element is used just like a table data element, except with
+    a relevant title. Just like table data, a table heading must be placed within
+    a table row.
+
+>     <table>
+>       <tr>
+>         <th></th>
+>         <th scope="col">Saturday</th>
+>         <th scope="col">Sunday</th>
+>       </tr>
+>       <tr>
+>         <th scope="row">Temperature</th>
+>         <td>73</td>
+>         <td>81</td>
+>       </tr>
+>     </table>
+
+   <table>
+     <tr>
+       <th></th>
+       <th scope="col">Saturday</th>
+       <th scope="col">Sunday</th>
+     </tr>
+     <tr>
+       <th scope="row">Temperature</th>
+       <td>73</td>
+       <td>81</td>
+     </tr>
+   </table>
+
+    Note, also, the use of the scope attribute, which can take one of two values:
+
+      1. row - this value makes it clear that the heading is for a row.
+
+      2. col - this value makes it clear that the heading is for a column.
+
+    HTML code for tables may look a little strange at first, but analyzing it piece by piece helps make the code more understandable.
+
+    Data can span columns using the colspan attribute. The attributes accepts an integer (greater than or equal to 1) to denote the number of columns it spans across.
+
+>     <table>
+>       <tr>
+>         <th>Monday</th>
+>         <th>Tuesday</th>
+>         <th>Wednesday</th>
+>       </tr>
+>       <tr>
+>         <td colspan="2">Out of Town</td>
+>         <td>Back in Town</td>
+>       </tr>
+>     </table>
+
+  <table>
+    <tr>
+      <th>Monday</th>
+      <th>Tuesday</th>
+      <th>Wednesday</th>
+    </tr>
+    <tr>
+      <td colspan="2">Out of Town</td>
+      <td>Back in Town</td>
+    </tr>
+  </table>
+
+    In the example above, the data Out of Town spans the Monday and Tuesday table headings using the value 2 (two columns). The data Back in Town appear only under the Wednesday heading.
+
+### 2. CSS *Lingo*
+
+  2.1 Basic structure of CSS
+
+    CSS structure can be used in many ways.
+    the basic structure being the following.
+
+  ![Structure](htmlcss1-diagram__cssdeclaration.svg)
+
+
+  2.1.1 Multiple selectors
 
     CSS does not limit you to selectors that target a single element or class.
     Using a multiple class selector is an efficient way of styling multiple HTML
@@ -347,20 +500,6 @@
 >     .first, .last {
 >       font-size: 20px;
 >      }
-
-
-
-
-
-
-### 2. CSS *Lingo*
-
-  2.1 Basic structure of CSS
-
-    CSS structure can be used in many ways.
-    the basic structure being the following.
-
-  ![Structure](htmlcss1-diagram__cssdeclaration.svg)
 
   2.2 linking CSS and HTML together
 
@@ -736,7 +875,7 @@
 >         border-radius: 100%;
 >       }
 
-  2.8 Shorthand Styling
+  2.8 Shorthand Border Styling
 
     The shorthand way of setting border style, width, and color can be achieved
     with the border property.
@@ -914,10 +1053,375 @@
 >       padding: 10px;
 >     }
 
-    In the example above, a heading element's box has solid, black, 1 pixel thick borders. The height of the box is 200 pixels, while the width of the box is 300 pixels. A padding of 10 pixels has also been set on all four sides of the box's content.
+    In the example above, a heading element's box has solid, black, 1 pixel thick
+    borders. The height of the box is 200 pixels, while the width of the box is
+    300 pixels. A padding of 10 pixels has also been set on all four sides of the
+    box's content.
 
-    Unfortunately, under the current box model, the border thickness and the padding will affect the dimensions of the box.
+    Unfortunately, under the current box model, the border thickness and the
+    padding will affect the dimensions of the box.
 
-    The 10 pixels of padding increases the height of the box to 220 pixels the width to 320 pixels. Next, the 1 pixel thick border increases the height to 221 pixels and the width to 321 pixels.
+    The 10 pixels of padding increases the height of the box to 220 pixels the
+    width to 320 pixels. Next, the 1 pixel thick border increases the height to
+    221 pixels and the width to 321 pixels.
 
   ![Box Model](htmlcss1-diagram__contentbox.svg)
+
+    Many properties in CSS have a default value and don't have to be explicitly
+    set in the stylesheet.
+
+    For example, the default font-weight of text is normal, but this property-value
+    pair is not typically specified in a stylesheet.
+
+    The same can be said about the box model that browsers assume. In CSS, the
+    box-sizing property controls the type of box model the browser should use when interpreting a web page.
+
+    The default value of this property is content-box. This is the same box model
+    that is affected by border thickness and padding.
+
+    Fortunately, we can reset the entire box model and specify a new one:
+    border-box.
+
+>     * {
+>       box-sizing: border-box;
+>     }
+
+    The height of the box would remain at 200 pixels and the width would remain
+    at 300 pixels. The border thickness and padding would remain entirely inside
+    of the box.
+
+  ![Box Model](htmlcss1-diagram__borderbox.svg)
+
+  2.15 Position property
+
+    The default position of an element can be changed by setting its position property. The position property can take one of four values:
+
+      1. static - the default value (it does not need to be specified)
+      2. relative
+      3. absolute
+      4. fixed
+
+    2.15.1 Position: Relative
+
+      One way to modify the default position of an element is by setting its position property to relative.
+
+      This value allows you to position an element relative to its default position the web page.
+
+>       iv.description {
+>         background-color: #1D09AF;
+>         width: 50px;
+>         height: 50px;
+>         position: relative;
+>         top: 50px;
+>         left: 75px;
+>       }
+
+      In the example above, the div has been positioned using two of the four offset properties. The valid offset properties are:
+
+        1. top - moves the element down.
+        2. bottom - moves the element up.
+        3. left - moves the element right.
+        4. right - moves the element left.
+
+      In the example above, the div will be moved down 50 pixels and to the right
+      75 pixels. Units for offset properties can be specified pixels, ems, or
+      percentages. Note that offset properties will not work if the position of the
+      element is not set to relative.
+
+    2.15.2 Position: Absolute
+
+      When an element's position is set to absolute, all other elements on the
+      page will ignore the element and act like it is not present on the page.
+
+>       div.description {
+>         background-color: #1D09AF;
+>         width: 50px;
+>         height: 50px;
+>         position: absolute;
+>       }
+
+      Unlike the relative value, the code in the example is valid. The div will
+      be pinned down to its current position. Unfortunately, if offset properties
+      aren't specified, it's possible for the div's content to overlap with other
+      content on the page, especially since other elements with ignore the div.
+
+      Offset properties can be set in order to avoid this problem. The specific
+      offset values will depend on what makes the best sense for the content of
+      a web page.
+
+>       div.description {
+>         background-color: #1D09AF;
+>         width: 50px;
+>         height: 50px;
+>         position: absolute;
+>         left: 250px;
+>       }
+
+    2.15.3 Position: Fixed
+
+      We can fix an element to a specific position on the page
+      (regardless of user scrolling) by setting its position to fixed.
+
+>       div.navigation {
+>         position: fixed;
+>         height: 50px;
+>         width: 100%;
+>       }
+
+      In the example above, the div will remain fixed to its position no matter
+      where the user scrolls on the page. This technique is used often for
+      navigation bars on a web page.
+
+      It's still possible, however, for content (like text) to overlap other
+      content when using this position. One solution is to set an opaque
+      background color for the element.
+
+>       div.navigation {
+>         position: fixed;
+>         background-color: #4BF5FF;
+>         height: 50px;
+>         width: 100%;
+>       }
+
+      The opaque background color will prevent any other content on the page
+      from overlapping with any content inside of the div.
+
+  2.16 Z-index Property
+
+    The z-index property controls how far "back" or how far "forward" an element
+    should appear on the web page.
+
+    It can also be described as setting the layer on which the element sits.
+    If the z-index is set to 0 and the position is set to fixed the content of
+    other elements would be visible through the element which has a z-index of 0
+
+    The z-index property accepts integer values. Depending on their values, the integers instruct the browser on the order in which elements should be displayed on the web page.
+
+  2.17 Float Property
+
+    If you're simply interested in moving an element as far left or as far right
+    as possible on the page, you can use the float property.
+
+    The float property can be set to one of two values:
+
+      1. left - this value will move, or float, elements as far left as possible.
+      2. right - this value will move elements as far right as possible.
+
+>       div.block {
+>         width: 100px;
+>         float: left;
+>       }
+
+    When an element is floated, any other content within the same containing
+    element will naturally flow around the element.
+
+    loated elements must have a width specified, as in the example above.
+    Otherwise, the element will assume the full width of its containing element, and attempting to float the element may not yield any visible results.
+
+  2.18 Clear Property
+
+    The clear property specifies how elements should behave when they bump into
+    each other on the page. It can take on one of the following values:
+
+
+      1. left — the left side of the element will not touch any other element
+         within the  same containing element.
+
+      2. right — the right side of the element will not touch any other element
+         within the same containing element.
+
+      3. both — neither side of the element will touch any other element within
+         the same containing element.
+
+      4. none — the element can touch either side.
+
+>       div {
+>         width: 200px;
+>         float: left;
+>       }
+>
+>       div.special {
+>         clear: left;
+>       }
+
+      In the example above, all divs on the page are floated to the left side.
+      The div with class special did not move all the way to the left because a
+      taller div blocked its positioning. By setting its clear property to left,
+      the special div will be moved all the way to the left side of the page.
+
+  2.19 Images and CSS
+
+    As with any other element, the dimensions of an image can be set with the
+    height and width properties.
+
+    Specifying the dimensions of an image helps the browser determine how much
+    space should be reserved for the image.
+
+    Note: Images should be saved at the dimensions they will be displayed in on
+    the web page. Using dimensions for an image that exceed the original dimensions
+    will distort the image.
+
+    Images can also be centered, but first, their default behavior must be changed. By default, images are inline elements. For images to center properly, they must behave as block-level elements.
+
+>     img.leaf {
+>       width: 300px;
+>       height: 200px;
+>       display: block;
+>      }
+
+    In the example above, the image's display property has been set to block. Now the image can be aligned as a block-level element.
+
+>     img.leaf {
+>       width: 300px;
+>       height: 200px;
+>       display: block;
+>       margin: 0px auto;
+>     }
+
+    In the example above, the image is aligned using the margin property. The top
+    and bottom margins of the image's box are set to 0 margin. The left and right
+    margins are set to auto, which automatically sets the exact amount of margin
+    needed on the left and right sides in order to center the image.
+
+    Note: To align images to the left or right side of a page, you can use the
+    float property you learned about earlier.
+
+  2.20 Background-Image Property.
+
+    Images can also be added to the backgrounds of HTML elements with the
+    background-image property.
+
+>     body {
+>       background-image: url("https://www.example.com/leaf.jpg");
+>     }
+
+    The background-image can be set to a value of url().
+
+    1. url() - contains the URL of the image, enclosed in double quotes.
+
+    In the example above, the background of the body will be set to the image
+    specified in double quotes. This technique can be used on nearly any HTML
+    element.
+
+    The background-image also supports color gradients.
+
+>     background-image: -webkit-linear-gradient(#DA2312, #99AC43);
+
+  2.21 Background-Repeat Property
+
+    You can control how a background image repeats with the background-repeat
+    property. This property can take one of four values:
+
+      1. repeat - the default value — the image will repeat horizontally and
+         vertically.
+
+      2. repeat-x - the background image will be repeated only along the
+         x-axis (horizontally).
+
+      3. repeat-y - the background image will be repeated only along the y-axis (vertically).
+
+      4. no-repeat - the background image will not be repeated at all and will
+         appear only once.
+
+>       p {
+>         background-image: url("#");
+>         background-repeat: repeat-x;
+>       }
+
+    In the example above, the paragraph's background image will repeat horizontally.
+
+  2.22 Background-Position Property.
+
+    When a background image is not repeated, its position can be modified with
+    the background-position property.
+
+>     p {
+>       background-image: url("#");
+>       background-repeat: no-repeat;
+>       background-position: right center;
+>     }
+
+    A background image is positioned using a 3 by 3 grid (three rows, three columns), meaning there are 9 total possible positions for the image:
+
+      1. left top - top left corner of the element's box.
+
+      2. center top - top center of the element's box.
+
+      3. right top - top right corner of the element's box.
+
+      4. left center - left column, center row.
+
+      5. center center - the center of the element's box.
+
+      6. right center - right column, center row.
+
+      7. left bottom - bottom left corner of the element's box.
+
+      8. center bottom - bottom center of the element's box.
+
+      9. right bottom - bottom right corner of the element's box.
+
+    Note that the values are in pairs.
+
+>     p {
+>       background-image: url("#");
+>       background-repeat: no-repeat;
+>       background-position: right top;
+>     }
+
+    In the example above, the background image is not repeated. It's positioned in the top right corner of the element's box.
+
+    Note: When setting this property, if only one value is specified, the second value will default to center.>
+
+  2.23 Shorthand Background Styling
+
+    CSS allows you to set all three properties at once using a shorthand property: background.
+
+>     p {
+>       background: url("#") no-repeat right center;
+>     }
+
+    Note that the background property includes all of the properties: background image, repetition, and position (in that order). It's considered best practice to follow this order of values when setting the background property.
+
+  2.24 Background-Size Property.
+
+    To modify a background image's size, you can use the background-size property.
+
+    cover - expands the image as large as possible to cover the full width or height
+    of a container. If the dimensions of the container (say, a div) are larger than
+    the dimensions of the image, the image will become distorted. This value is
+    best for images that don't communicate important content to the user, like
+    background images.
+
+    contain - expands the image as large as possible, but the image will be
+    letterboxed, which means it won't cover the full width or height of a container.
+
+>     div.header {
+>       height: 400px;
+>       width: 100%;
+>       background: url("#") no-repeat right center;
+>       background-size: cover;
+>     }
+
+    In the example above, the background image will expand to cover the full size
+    of the div.
+
+  2.25 Background-Attachment Property
+
+    With the background-attachment property, you can specify whether or not a background image should remain at one position on the web page or whether it should move up and down as the user scrolls through a web page.
+
+    The background-attachment property can take one of two values:
+
+      1. scroll - this value allows the image to move up and down as a user
+         scrolls on the web page (this is the default value).
+
+      2. fixed - this value pins the image's position on the page.
+
+>     p {
+>       background: url("#") no-repeat right center;
+>       background-attachment: fixed;
+>     }
+
+    In the example above, the background image will remained fixed as a user scrolls through the web page.
+
+![test](Test.png)
