@@ -45,6 +45,12 @@
 >>>     1.5.2.2 Elements with more than one class
 >
 >  1.6 `<tables></tables>` Tag
+>>
+>>     1.6.1 <tbody></tbody> Tag
+>>
+>>     1.6.2 <thead></thead> Tag
+>>
+>>     1.6.3 <tfoot></tfoot> Tag
 
 #### 2. CSS *Lingo*
 
@@ -144,11 +150,28 @@
 
 #### 3. JavaScript *Lingo*
 
+>   3.1 Intro
+
 #### 4. HTML Video Tutorials
 
 #### 5. CSS Video Tutorials
 
 #### 6. JavaScript Video Tutorials
+
+#### 7. Setting Up A Vagrant Box
+
+>   7.1 Create your project files and folders
+>   7.2 Edit your Homestead.yaml file
+>   7.3 Edit your /etc/hosts file in console with sudo nano /etc/hosts
+>   7.4 Run vagrant reload --provisions
+
+#### 8.Setting up Handlebars for a new project
+
+>   8.1 Installing Handlebars.
+
+#### 9 Udemy Course links
+
+#### 10 RESTful Routes
 
 ### 1. HTML *Lingo*
 
@@ -363,7 +386,7 @@
 
 
 
-  1.7 `<table></table>` Tag
+  1.6 `<table></table>` Tag
 
     Before displaying data, you must first create the table that will contain the
     data by using the <table> element.
@@ -428,8 +451,6 @@
 >       </tr>
 >     </table>
 
-   <table>
-     <tr>
        <th></th>
        <th scope="col">Saturday</th>
        <th scope="col">Sunday</th>
@@ -447,9 +468,12 @@
 
       2. col - this value makes it clear that the heading is for a column.
 
-    HTML code for tables may look a little strange at first, but analyzing it piece by piece helps make the code more understandable.
+    HTML code for tables may look a little strange at first, but analyzing it
+    piece by piece helps make the code more understandable.
 
-    Data can span columns using the colspan attribute. The attributes accepts an integer (greater than or equal to 1) to denote the number of columns it spans across.
+    Data can span columns using the colspan attribute. The attributes accepts
+    an integer (greater than or equal to 1) to denote the number of columns it
+    spans across.
 
 >     <table>
 >       <tr>
@@ -475,7 +499,90 @@
     </tr>
   </table>
 
-    In the example above, the data Out of Town spans the Monday and Tuesday table headings using the value 2 (two columns). The data Back in Town appear only under the Wednesday heading.
+    In the example above, the data Out of Town spans the Monday and Tuesday table
+    headings using the value 2 (two columns). The data Back in Town appear only
+    under the Wednesday heading.
+
+    Data can also span multiple rows using the rowspan attribute.
+
+    The rowspan attribute is used for data that spans multiple rows (perhaps an
+    event goes on for multiple hours on a certain day). It accepts an integer
+    (greater than or equal to 1) to denote the number of rows it spans across.
+
+>     <table>
+>       <tr> <!-- Row 1 -->
+>         <th></th>
+>         <th>Saturday</th>
+>         <th>Sunday</th>
+>       </tr>
+>       <tr> <!-- Row 2 -->
+>         <th>Morning</th>
+>         <td rowspan="2">Work</td>
+>         <td rowspan="3">Relax</td>
+>       </tr>
+>       <tr> <!-- Row 3 -->
+>         <th>Afternoon</th>
+>       </tr>
+>       <tr> <!-- Row 4 -->
+>         <th>Evening</th>
+>         <td>Dinner</td>
+>       </tr>
+>     </table>
+
+  <table>
+    <tr> <!-- Row 1 -->
+      <th></th>
+      <th>Saturday</th>
+      <th>Sunday</th>
+    </tr>
+    <tr> <!-- Row 2 -->
+      <th>Morning</th>
+      <td rowspan="2">Work</td>
+      <td rowspan="3">Relax</td>
+    </tr>
+    <tr> <!-- Row 3 -->
+      <th>Afternoon</th>
+    </tr>
+    <tr> <!-- Row 4 -->
+      <th>Evening</th>
+      <td>Dinner</td>
+    </tr>
+  </table>
+
+    In the example above, there are four rows:
+
+    The first row contains an empty cell and the two column headings.
+    The second row contains the Morning row heading, along with Work, which spans
+    two rows under the Saturday column. The "Relax" entry spans three rows under
+    the Sunday column.
+    The third row only contains the Afternoon row heading.
+    The fourth row only contains the Dinner entry, since "Relax" spans into the
+    cell next to it.
+
+      1.6.1 <tbody></tbody> Tag
+
+        Over time, a table can grow to contain a lot of data and become very long.
+        When this happens, the table can be sectioned off so that it is easier to
+        manage.
+
+        Long tables can be sectioned off using the table body element: <tbody>.
+
+        The <tbody> element should contain the all of the table's data, excluding
+        the table headings (more on this in a later exercise).
+
+      1.6.2 <thead></thead> Tag
+
+        When a table's body is sectioned off, however, it also makes sense to
+        section off the table's headings using the <thead> element.
+
+        The table headings are contained inside of this element. Note that the
+        table's head still requires a row in order to contain the table headings.
+
+      1.6.3 <tfoot></tfoot> Tag
+
+        The bottom part of a long table can also be sectioned off using the
+        <tfoot> element.Footers are often used to contain sums, differences,
+        and other data results.
 
 ### 2. CSS *Lingo*
 
@@ -1215,7 +1322,7 @@
     When an element is floated, any other content within the same containing
     element will naturally flow around the element.
 
-    loated elements must have a width specified, as in the example above.
+    Floated elements must have a width specified, as in the example above.
     Otherwise, the element will assume the full width of its containing element, and attempting to float the element may not yield any visible results.
 
   2.18 Clear Property
@@ -1424,4 +1531,130 @@
 
     In the example above, the background image will remained fixed as a user scrolls through the web page.
 
-![test](Test.png)
+### 3. JAVASCRIPT *Lingo*
+
+  3.1 Intro
+
+    There are three essential data types to know for now, and here is your first
+    test of memorization (don't worry, we will practice):
+
+      1. String: Any grouping of words or numbers surrounded by single quotes:
+                 ' ... ' or double quotes " ... ".
+
+      2. Number: Any number, including numbers with decimals, without quotes:
+                 4, 8, 1516, 23.42.
+
+      3. Boolean: This is always one of two words. Either true or false, with
+                  no quotations.
+
+### 7. Setting Up A Vagrant Box For A New Project
+
+    7.1 Create a file with project name in your chosen directory.
+        Create your html file and populate it with the bare minimum required.
+        So you can test if you have correctly added a new project to vagrant vm.
+
+    7.2 Edit your homestead.yaml file and make sure that it is exactly spaced and edited
+        or it will not work.
+        Inset your desired project under the "sites:"
+        There you give it a map name : www.anyname.dev(it does not have to be .dev)
+        After that you add the path on to "to:"
+        Remember that even One space " " out of place could cause this not to work
+
+        Here is an example of a yaml file:
+
+            ---
+            ip: "192.168.10.10"
+            memory: 2048
+            cpus: 1
+            provider: virtualbox
+
+            authorize: ~/.ssh/id_rsa.pub
+
+            keys:
+                - ~/.ssh/id_rsa
+
+            folders:
+                - map: ~/Projects
+                  to: /home/vagrant/Projects
+
+            sites:
+                - map: www.mytests.dev
+                  to: /home/vagrant/Projects/mytests
+
+                - map: www.my-laravel.dev
+                to: /home/vagrant/Projects/laravel/public
+
+                - map: www.battleships.dev
+                  to: /home/vagrant/Projects/battleships
+
+                - map: www.candywars.dev
+                  to: /home/vagrant/Projects/CandyWars
+
+                - map: www.slotmachine.dev
+                  to: /home/vagrant/Projects/SlotMachine
+
+            databases:
+                - homestead
+
+            remember to add a port at the ports section if running a server from node.
+
+                # ports:
+                - send: 50000
+                to: 5000
+                - send: 7777
+                to: 777
+                - send: 3000 //currently used for node
+                to: 3000
+                protocol: udp
+
+
+                to access files on this port you would use the following url then
+
+                www.mytests.dev:3000/request
+
+    7.3 Edit you /etc/hosts file in konsole by typing :
+        sudo nano /etc/hosts
+        Add your website domain name for example: www.somename.dev
+
+            127.0.0.1	localhost
+            127.0.1.1	ruben-kubuntu
+            192.168.10.10   www.mytests.dev
+            192.168.10.10   www.ruben.com
+            192.168.10.10   www.my-laravel.dev
+            192.168.10.10   www.battleships.dev
+            192.168.10.10   www.candywars.dev
+            192.168.10.10	www.slotmachine.dev
+
+    7.4 Go to your homestead folder in konsole and start up vagrant.
+        by typing vagrant up.
+        Then in Konsole type vagrant reload --provision to restart vagrant
+        with the newly added project.
+
+### 8 Setting up Handlebars for a new project
+
+    8.1 Installing Handlebars.
+        After installing node.js and npm;
+        Remember to gitignore node_modules in your Projects.
+
+        (These steps are all done in konsole)
+        8.1.1   ssh into your vm (vagrant ssh)
+
+        8.1.2   Go into your project root folder and type "npm init".
+
+        8.1.3   Type in npm install --save handlebars.
+
+### 9 Udemy Course links
+
+        https://ide.c9.io/learnwithcolt/webdevbootcamp
+
+### 10 RESTful Routes
+
+| Name | Path | HTTP Verb | Purpose |
+|:-----:|:----:|:----------:|:---------|
+| Index  | /dogs  | GET | List all dogs |
+| NEW | /dogs/new | GET | Show new dog form |
+| Create  | /dogs  | POST | Create new dog, then redirect somwhere |
+| Show  | /dogs/:id | GET | Show info on one specific dog |
+| Edit  | /dogs/:id/edit | GET | Show edit form for one dog |
+| Update | /dogs/:id | PUT | Update a particualar dog, then redirect somewhere |
+| Destroy | /dogs/:id | DELETE | Delete a particular dog |
