@@ -173,6 +173,8 @@
 
 #### 10 RESTful Routes
 
+#### 11 Setting up mysql database in vagrant and phpStorm
+
 ### 1. HTML *Lingo*
 
 #### Element Img
@@ -1649,12 +1651,77 @@
 
 ### 10 RESTful Routes
 
-| Name | Path | HTTP Verb | Purpose |
-|:-----:|:----:|:----------:|:---------|
-| Index  | /dogs  | GET | List all dogs |
-| NEW | /dogs/new | GET | Show new dog form |
-| Create  | /dogs  | POST | Create new dog, then redirect somwhere |
-| Show  | /dogs/:id | GET | Show info on one specific dog |
-| Edit  | /dogs/:id/edit | GET | Show edit form for one dog |
-| Update | /dogs/:id | PUT | Update a particualar dog, then redirect somewhere |
-| Destroy | /dogs/:id | DELETE | Delete a particular dog |
+| Name | Path | HTTP Verb | Purpose | Mongoose Method |
+|:-----:|:----:|:----------:|:---------:|:----------------:|
+| Index  | /dogs  | GET | List all dogs | Dog.find() |
+| New | /dogs/new | GET | Show new dog form | N/A |
+| Create  | /dogs  | POST | Create new dog, then redirect somwhere | Dog.create() |
+| Show  | /dogs/:id | GET | Show info on one specific dog | Dog.findById() |
+| Edit  | /dogs/:id/edit | GET | Show edit form for one dog | Dog.findById() |
+| Update | /dogs/:id | PUT | Update a particualar dog, then redirect somewhere | Dog.findByIdAndUpdate() |
+| Destroy | /dogs/:id | DELETE | Delete a particular dog | Dog.findByIdAndRemove() |
+
+### 11 Setting up mysql database in vagrant and phpStorm
+
+    11.1 Open you linux terminal an cd into your hopmestead folder and type
+        "vagrant up" or "vagrant resume" if you only suspended vagrant.
+
+    11.2 When vagrant is up type into the terminal "vagrant ssh"
+        This wil take you into the virtual machine's folders.
+
+    11.3 Type "mysql" all lowercase into the terminal which will display a new
+        type of terminal that looks something like this:
+
+        Last login: Wed Jul 19 15:00:00 2017 from 10.0.2.2
+        vagrant@homestead:~$ mysql
+        Welcome to the MySQL monitor.  Commands end with ; or \g.
+        Your MySQL connection id is 23
+        Server version: 5.7.17-0ubuntu0.16.04.1 (Ubuntu)
+
+        Copyright (c) 2000, 2016, Oracle and/or its affiliates. All rights reserved.
+
+        Oracle is a registered trademark of Oracle Corporation and/or its
+        affiliates. Other names may be trademarks of their respective
+        owners.
+
+        Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+        mysql>
+
+    11.4 To create a database  type the following into the mysql terminal :
+
+        CREATE DATABASE IF NOT EXISTS your_DB_name DEFAULT CHARACTER SET utf8 DEFAULT
+        COLLATE utf8_unicode_ci;
+
+        This will create your database.
+
+        To DELETE a database type:
+            DROP DATABASE your_DB_name;
+
+    11.5 In phpStorm click on "View" at the top left dropdown menu.
+        Next click Tool Windows
+        Now click Database
+
+        "View => Tool Windows => Database"
+
+    11.6 Click on the plus icon on newly opened window and select new Data source.
+        select MySQL
+        Host : Your homestead IP address
+        Database : your_DB_name
+        User : homestead
+        password : "secret" this must be changed at some point
+
+    11.7 Click on "Test Connection" and if succsess the click apply and ok
+
+    11.8 Right click on the newly created database and select: "New => Table"
+        Add your columns give it a name.
+        The types are as follow :
+            int for numbers.
+            VARCHAR(Max length in numbers) for strings "VARCHAR(20)"
+
+        Thre are four selectable options below the column which is:
+            1. Not null : Usd for id's
+            2. Auto inc : used for id's in some cases and will give each new row
+               a new number by incrementing it
+            3. Unique : Check that there is not an entry with the same name or number
+            4. Primary key : Used for id's with Not null and Auto inc.
